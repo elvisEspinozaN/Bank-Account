@@ -1,0 +1,16 @@
+.transactions {
+  figure {
+    display: flex;
+  }
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  input,
+  button {
+    margin: 0 0.5rem;
+  }
+}
