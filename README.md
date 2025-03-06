@@ -1,37 +1,46 @@
-# Workshop - Bank Account
+# Bank Account Redux
 
-In this workshop, you will be implementing a simple bank account application. A user will be able to see their current balance, make deposits and withdrawals, transfer money to another user, and see a log of all transactions they've made in their current session.
+![Virtual bank account](https://i.imgur.com/puGvkg6.png)
 
-## Getting Started
+## Overview
 
-1. Create a new repository using this one as a template.
-2. Clone the repository down and install the dependencies.
-3. This workshop is built using Vite; use `npm run dev` to start the application.
-4. You should see a barebones banking interface. However, none of the buttons will work yet.
+This is a **React-based banking application** built with Redux Toolkit that allows users to manage a virtual bank account. Users can track transactions, manage funds, and view their financial history in real-time.
 
-## Instructions
+## Features
 
-Most of the UI has already been written for you. Your job is to complete the missing code as indicated by the `TODO` comments. Most of what you will be writing involves working with Redux Toolkit.
+**Core Functionality:**
 
-1. Complete the slice defined in `transactionsSlice.js`.
-2. Configure the store to use that slice in `store.js`.
-3. Provide the store to the app in `App.jsx`.
-4. Correctly exchange information with the store in `Transactions.jsx`.
-5. Complete `TransactionHistory.jsx`.
-6. Manually test your application to make sure everything works!
+- View current account balance
+- Make deposits and withdrawals
+- Transfer funds to other users
+- View transaction history
 
-The [Redux Toolkit Documentation](https://redux-toolkit.js.org/introduction/getting-started) is a great place to reference! Their example code isn't too different from the code you're working with here.
+**Extended Features:**
 
-## Extensions
+- Prevent overdrafts/negative balances
+- Form validation with error messages
+- Undo last transaction functionality
+- Data persistence with sessionStorage
+- Styled with Sass
 
-If you're done early, try adding some of the following features:
+## Technologies Used
 
-- Prevent actions that would result in a negative balance.
-- Add better form validation and error messages.
-- Allow a user to undo their last transaction.
-- Use `sessionStorage` to persist the user's balance between refreshes.
-- Use Sass to style the application.
+- React.js
+- Redux Toolkit
+- React-Redux
+- JavaScript
+- Sass/CSS
+- Vite
 
-## Submission
+## Live Demo
 
-Please submit a link to your GitHub repository.
+[Click here to view the app](https://bank-account-redux.netlify.app/)
+
+## Contact
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/elvis-espinoza/)  
+✉️ elvis.espinoza.navarrete@outlook.com
+
+## Acknowledgments
+
+- Fullstack Academy instructors

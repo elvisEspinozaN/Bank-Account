@@ -23,7 +23,7 @@ export default function TransactionHistory() {
       <button className="undo-button" onClick={() => dispatch(undo())}>
         Undo
       </button>
-      <table>
+      <table className="table-container">
         <thead>
           <tr>
             <th scope="col">Type</th>
