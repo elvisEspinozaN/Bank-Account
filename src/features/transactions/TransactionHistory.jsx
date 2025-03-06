@@ -20,7 +20,9 @@ export default function TransactionHistory() {
   return (
     <section className="transactions-history container">
       <h2>Transaction History</h2>
-      <button onClick={() => dispatch(undo())}>Undo</button>
+      <button className="undo-button" onClick={() => dispatch(undo())}>
+        Undo
+      </button>
       <table>
         <thead>
           <tr>
