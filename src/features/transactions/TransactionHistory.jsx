@@ -1,6 +1,6 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./transactionHistory.scss";
-import { selectHistory } from "./transactionsSlice";
+import { selectHistory, undo } from "./transactionsSlice";
 
 /** Displays a table row with transaction information  */
 const TransactionRow = ({ transaction: { type, amount, balance } }) => (
@@ -15,10 +15,12 @@ const TransactionRow = ({ transaction: { type, amount, balance } }) => (
 export default function TransactionHistory() {
   // TODO: Get the transaction history from the Redux store using the useSelector hook
   const history = useSelector(selectHistory);
+  const dispatch = useDispatch();
 
   return (
     <section className="transactions-history container">
       <h2>Transaction History</h2>
+      <button onClick={() => dispatch(undo())}>Undo</button>
       <table>
         <thead>
           <tr>

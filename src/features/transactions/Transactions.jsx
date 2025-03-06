@@ -81,6 +81,11 @@ export default function Transactions() {
               step="0.01"
               value={amountStr}
               onChange={(e) => setAmountStr(e.target.value)}
+              onFocus={(e) => {
+                if (amountStr) {
+                  setAmountStr("");
+                }
+              }}
             />
           </label>
           <div>

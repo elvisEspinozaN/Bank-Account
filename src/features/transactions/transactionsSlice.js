@@ -44,10 +44,30 @@ const transactionsSlice = createSlice({
         balance: state.balance,
       });
     },
+
+    undo: (state) => {
+      const lastTransaction = state.history.pop();
+      if (!lastTransaction) return;
+
+      switch (true) {
+        case lastTransaction.type === "deposit":
+          state.balance -= lastTransaction.amount;
+          break;
+        case lastTransaction.type.startsWith("withdrawal"):
+          state.balance += lastTransaction.amount;
+          break;
+        case lastTransaction.type.startsWith("transfer"):
+          state.balance += lastTransaction.amount;
+          break;
+        default:
+          break;
+      }
+    },
   },
 });
 
-export const { deposit, withdrawal, transfer } = transactionsSlice.actions;
+export const { deposit, withdrawal, transfer, undo } =
+  transactionsSlice.actions;
 
 export const selectBalance = (state) => state.transactions.balance;
 export const selectHistory = (state) => state.transactions.history;
