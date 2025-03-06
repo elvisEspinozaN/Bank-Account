@@ -17,16 +17,39 @@ export default function Transactions() {
 
   const [amountStr, setAmountStr] = useState("0.00");
   const [recipient, setRecipient] = useState("");
+  const [error, setError] = useState(null);
 
   /** Dispatches a transaction action based on the form submission. */
   const onTransaction = (e) => {
     e.preventDefault();
+    setError(null);
 
     // This changes depending on which button the user clicked to submit the form.
     // It will be either "deposit", "withdraw", or "transfer".
     const action = e.nativeEvent.submitter.name;
 
     const amount = +amountStr;
+
+    if (amount <= 0) {
+      setError("Amount must be greater than 0");
+      return;
+    }
+
+    if (action === "withdraw" && amount > balance) {
+      setError("Insufficient funds available");
+      return;
+    }
+
+    if (action === "transfer") {
+      if (recipient.length === 0) {
+        setError("Recipient's name required");
+        return;
+      }
+      if (amount > balance) {
+        setError("Insufficient funds available");
+        return;
+      }
+    }
 
     if (action === "transfer") {
       // The `transfer` action is dispatched with a payload containing
@@ -47,6 +70,7 @@ export default function Transactions() {
         <strong>${balance.toFixed(2)}</strong>
       </figure>
       <form onSubmit={onTransaction}>
+        {error && <div className="error-message">{error}</div>}
         <div className="form-row">
           <label>
             Amount
